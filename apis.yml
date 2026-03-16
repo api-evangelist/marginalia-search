@@ -1,33 +1,41 @@
 aid: marginalia-search
 name: Marginalia Search
 description: >-
-  An API for the search engine is available through api.marginalia.nu, or
-  api.marginalia-search.com. Both endpoints are equivalent and will work as long
-  as the project does. 
+  Marginalia Search is an independent search engine focused on non-commercial
+  content. Its API is accessible through api.marginalia.nu or
+  api.marginalia-search.com and allows developers to perform web searches
+  against the Marginalia index.
 type: Index
-position: Consumer
-access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
-created: '2025-02-06'
-modified: '2025-02-06'
+  - Search
+  - Web Search
+  - Open Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/apis.yml
+created: '2025-02-06'
+modified: '2026-03-16'
 specificationVersion: '0.19'
 apis:
-  - aid: marginalia-search:marginalia-search
-    name: Marginalia Search
+  - aid: marginalia-search:marginalia-search-api
+    name: Marginalia Search API
     description: >-
-      An API for the search engine is available through api.marginalia.nu, or
-      api.marginalia-search.com. Both endpoints are equivalent and will work as
-      long as the project does. 
-    humanURL: ' https://about.marginalia-search.com/article/api/'
+      The Marginalia Search API provides access to the Marginalia search engine
+      index. Both api.marginalia.nu and api.marginalia-search.com endpoints
+      are equivalent and support programmatic search queries.
+    humanURL: https://about.marginalia-search.com/article/api/
+    baseURL: https://api.marginalia.nu
     tags:
-      - API
+      - Search
+      - Web Search
     properties:
       - type: Documentation
-        url: ' https://about.marginalia-search.com/article/api/'
+        url: https://about.marginalia-search.com/article/api/
+common:
+  - type: Website
+    url: https://marginalia-search.com/
+  - type: GitHub Organization
+    url: https://github.com/MarginaliaSearch
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
