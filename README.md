@@ -1,5 +1,5 @@
 # Marginalia Search (marginalia-search)
-Marginalia Search is an independent search engine focused on non-commercial content. Its API is accessible through api.marginalia.nu or api.marginalia-search.com and allows developers to perform web searches against the Marginalia index.
+Marginalia Search is an independent search engine focused on non-commercial content. Its API is accessible through api2.marginalia-search.com (current) and the legacy api.marginalia.nu / api.marginalia-search.com endpoints, and allows developers to perform web searches against the Marginalia index.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/apis.yml)
 
@@ -16,15 +16,16 @@ Marginalia Search is an independent search engine focused on non-commercial cont
 ## Timestamps
 
 - **Created:** 2025-02-06 
-- **Modified:** 2026-03-16 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
 ### Marginalia Search API
-The Marginalia Search API provides access to the Marginalia search engine index. Both api.marginalia.nu and api.marginalia-search.com endpoints are equivalent and support programmatic search queries.
+The Marginalia Search API provides access to the Marginalia search engine index. The current API is hosted at api2.marginalia-search.com; legacy api.marginalia.nu and api.marginalia-search.com endpoints remain available but are deprecated. All requests authenticate via the API-Key header.
 
 **Human URL:** [https://about.marginalia-search.com/article/api/](https://about.marginalia-search.com/article/api/)
 
+**Base URL:** https://api2.marginalia-search.com
 
 #### Tags:
 
@@ -33,11 +34,13 @@ The Marginalia Search API provides access to the Marginalia search engine index.
 #### Properties
 
 - [Documentation](https://about.marginalia-search.com/article/api/)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/openapi/marginalia-search-openapi.yml)
 
 ## Common Properties
 
 - [Website](https://marginalia-search.com/)
 - [GitHub Organization](https://github.com/MarginaliaSearch)
+- [Contact](mailto:contact@marginalia-search.com)
 
 ## Maintainers
 
