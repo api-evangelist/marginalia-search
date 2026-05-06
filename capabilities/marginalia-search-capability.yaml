@@ -1,0 +1,251 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Marginalia Search API
+  description: The Marginalia Search API provides programmatic access to the Marginalia independent search engine, focused
+    on non-commercial content. The new API is hosted at api2.marginalia-search.com; legacy endpoints at api.marginalia.nu
+    and api.marginalia-search.com remain available but deprecated. Search results are available under CC-BY-NC-SA 4.0 for
+    non-commercial use.
+  tags:
+  - Marginalia
+  - Search
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: marginalia-search
+    baseUri: https://api2.marginalia-search.com
+    description: Marginalia Search API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: API-Key
+      value: '{{MARGINALIA_SEARCH_TOKEN}}'
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: search
+        method: GET
+        description: Execute a web search
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+          description: Search terms.
+        - name: count
+          in: query
+          type: integer
+          description: Number of results to return.
+        - name: timeout
+          in: query
+          type: integer
+          description: Maximum execution time in milliseconds.
+        - name: dc
+          in: query
+          type: integer
+          description: Maximum results per domain.
+        - name: page
+          in: query
+          type: integer
+          description: Result page (1-indexed).
+        - name: nsfw
+          in: query
+          type: integer
+          description: NSFW content filtering (experimental).
+        - name: filter
+          in: query
+          type: string
+          description: Apply a named filter previously created via /filter.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: filter
+      path: /filter
+      operations:
+      - name: listfilters
+        method: GET
+        description: List configured filters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: filter-name
+      path: /filter/{name}
+      operations:
+      - name: getfilter
+        method: GET
+        description: Retrieve a filter definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createfilter
+        method: POST
+        description: Create a named filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletefilter
+        method: DELETE
+        description: Delete a filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: marginalia-search-rest
+    description: REST adapter for Marginalia Search API.
+    resources:
+    - path: /search
+      name: search
+      operations:
+      - method: GET
+        name: search
+        description: Execute a web search
+        call: marginalia-search.search
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /filter
+      name: listfilters
+      operations:
+      - method: GET
+        name: listfilters
+        description: List configured filters
+        call: marginalia-search.listfilters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /filter/{name}
+      name: getfilter
+      operations:
+      - method: GET
+        name: getfilter
+        description: Retrieve a filter definition
+        call: marginalia-search.getfilter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /filter/{name}
+      name: createfilter
+      operations:
+      - method: POST
+        name: createfilter
+        description: Create a named filter
+        call: marginalia-search.createfilter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /filter/{name}
+      name: deletefilter
+      operations:
+      - method: DELETE
+        name: deletefilter
+        description: Delete a filter
+        call: marginalia-search.deletefilter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: marginalia-search-mcp
+    transport: http
+    description: MCP adapter for Marginalia Search API for AI agent use.
+    tools:
+    - name: search
+      description: Execute a web search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marginalia-search.search
+      with:
+        query: tools.query
+        count: tools.count
+        timeout: tools.timeout
+        dc: tools.dc
+        page: tools.page
+        nsfw: tools.nsfw
+        filter: tools.filter
+      inputParameters:
+      - name: query
+        type: string
+        description: Search terms.
+        required: true
+      - name: count
+        type: integer
+        description: Number of results to return.
+      - name: timeout
+        type: integer
+        description: Maximum execution time in milliseconds.
+      - name: dc
+        type: integer
+        description: Maximum results per domain.
+      - name: page
+        type: integer
+        description: Result page (1-indexed).
+      - name: nsfw
+        type: integer
+        description: NSFW content filtering (experimental).
+      - name: filter
+        type: string
+        description: Apply a named filter previously created via /filter.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfilters
+      description: List configured filters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marginalia-search.listfilters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getfilter
+      description: Retrieve a filter definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: marginalia-search.getfilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createfilter
+      description: Create a named filter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: marginalia-search.createfilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletefilter
+      description: Delete a filter
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: marginalia-search.deletefilter
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    MARGINALIA_SEARCH_TOKEN: MARGINALIA_SEARCH_TOKEN
