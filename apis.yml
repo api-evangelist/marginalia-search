@@ -33,6 +33,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/openapi/marginalia-search-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/marginalia-search-domain-security.yml
+  - type: Authentication
+    url: authentication/marginalia-search-authentication.yml
   - type: Website
     url: https://marginalia-search.com/
   - type: GitHubOrganization

@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/marginalia-search-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: APIKey
+  type: apiKey
+  in: header
+  parameter: API-Key
+  description: API key supplied via the API-Key header. A public testing key is documented;
+    commercial and non-commercial keys are issued by contact@marginalia-search.com or via Polar.
+  sources:
+  - openapi/marginalia-search-openapi.yml
