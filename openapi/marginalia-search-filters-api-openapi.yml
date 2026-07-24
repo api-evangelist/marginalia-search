@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Marginalia Search Filters API
+  description: The Marginalia Search API provides programmatic access to the Marginalia independent search engine, focused on non-commercial content. The new API is hosted at api2.marginalia-search.com; legacy endpoints at api.marginalia.nu and api.marginalia-search.com remain available but deprecated. Search results are available under CC-BY-NC-SA 4.0 for non-commercial use.
+  version: 2.0.0
+  contact:
+    name: Marginalia Search
+    email: contact@marginalia-search.com
+    url: https://about.marginalia-search.com/article/api/
+  license:
+    name: CC-BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+servers:
+- url: https://api2.marginalia-search.com
+  description: Marginalia Search API v2 (current)
+- url: https://api.marginalia-search.com
+  description: Legacy API endpoint
+- url: https://api.marginalia.nu
+  description: Legacy API endpoint (original)
+security:
+- APIKey: []
+tags:
+- name: Filters
+  description: Manage named search filters (new API only).
+paths:
+  /filter:
+    get:
+      operationId: listFilters
+      summary: List configured filters
+      tags:
+      - Filters
+      responses:
+        '200':
+          description: List of filter names.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /filter/{name}:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Filter name.
+    get:
+      operationId: getFilter
+      summary: Retrieve a filter definition
+      tags:
+      - Filters
+      responses:
+        '200':
+          description: Filter definition (XML).
+          content:
+            application/xml:
+              schema:
+                type: string
+        '404':
+          description: Filter not found.
+    post:
+      operationId: createFilter
+      summary: Create a named filter
+      description: Create or update a filter. Filter bodies are XML supporting domain inclusion/exclusion, temporal bias, term filtering, and parameter constraints (year, quality, size, rank).
+      tags:
+      - Filters
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Filter created or updated.
+        '400':
+          description: Invalid filter definition.
+    delete:
+      operationId: deleteFilter
+      summary: Delete a filter
+      tags:
+      - Filters
+      responses:
+        '204':
+          description: Filter deleted.
+        '404':
+          description: Filter not found.
+components:
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: API key supplied via the API-Key header. A public testing key is documented; commercial and non-commercial keys are issued by contact@marginalia-search.com or via Polar.
+externalDocs:
+  description: Marginalia Search API Documentation
+  url: https://about.marginalia-search.com/article/api/

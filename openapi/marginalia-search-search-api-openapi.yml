@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Marginalia Filters Search API
+  description: The Marginalia Search API provides programmatic access to the Marginalia independent search engine, focused on non-commercial content. The new API is hosted at api2.marginalia-search.com; legacy endpoints at api.marginalia.nu and api.marginalia-search.com remain available but deprecated. Search results are available under CC-BY-NC-SA 4.0 for non-commercial use.
+  version: 2.0.0
+  contact:
+    name: Marginalia Search
+    email: contact@marginalia-search.com
+    url: https://about.marginalia-search.com/article/api/
+  license:
+    name: CC-BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+servers:
+- url: https://api2.marginalia-search.com
+  description: Marginalia Search API v2 (current)
+- url: https://api.marginalia-search.com
+  description: Legacy API endpoint
+- url: https://api.marginalia.nu
+  description: Legacy API endpoint (original)
+security:
+- APIKey: []
+tags:
+- name: Search
+  description: Search the Marginalia index.
+paths:
+  /search:
+    get:
+      operationId: search
+      summary: Execute a web search
+      description: Run a search query against the Marginalia index and return ranked results. Optional parameters allow paging, per-domain capping, NSFW filtering, and named filter application.
+      tags:
+      - Search
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Search terms.
+      - name: count
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+        description: Number of results to return.
+      - name: timeout
+        in: query
+        schema:
+          type: integer
+          minimum: 50
+          maximum: 250
+        description: Maximum execution time in milliseconds.
+      - name: dc
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+        description: Maximum results per domain.
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+        description: Result page (1-indexed).
+      - name: nsfw
+        in: query
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+        description: NSFW content filtering (experimental).
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Apply a named filter previously created via /filter.
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '401':
+          description: Missing or invalid API key.
+        '429':
+          description: Rate limit exceeded.
+components:
+  schemas:
+    SearchResponse:
+      type: object
+      properties:
+        query:
+          type: string
+          description: The submitted search query.
+        license:
+          type: string
+          description: Licensing terms applicable to the returned results.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+    SearchResult:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      in: header
+      name: API-Key
+      description: API key supplied via the API-Key header. A public testing key is documented; commercial and non-commercial keys are issued by contact@marginalia-search.com or via Polar.
+externalDocs:
+  description: Marginalia Search API Documentation
+  url: https://about.marginalia-search.com/article/api/
