@@ -1,0 +1,16 @@
+{
+  "provider": "marginalia-search",
+  "sources": [
+    "marginalia-search-filters-api-openapi.yml",
+    "marginalia-search-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "marginalia-search-filters-api-openapi.yml",
+    "marginalia-search-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
