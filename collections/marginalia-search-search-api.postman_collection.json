@@ -1,0 +1,335 @@
+{
+  "item": [
+    {
+      "id": "cfdb5a65-9730-4fa4-8225-c437312ac70a",
+      "name": "Search",
+      "description": {
+        "content": "Search the Marginalia index.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2836588a-45ef-4756-807d-4028526b2b3a",
+          "name": "Execute a web search",
+          "request": {
+            "name": "Execute a web search",
+            "description": {
+              "content": "Run a search query against the Marginalia index and return ranked results. Optional parameters allow paging, per-domain capping, NSFW filtering, and named filter application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Search terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>",
+                  "description": "Number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeout",
+                  "value": "<integer>",
+                  "description": "Maximum execution time in milliseconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "dc",
+                  "value": "<integer>",
+                  "description": "Maximum results per domain."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Result page (1-indexed)."
+                },
+                {
+                  "disabled": false,
+                  "key": "nsfw",
+                  "value": "<integer>",
+                  "description": "NSFW content filtering (experimental)."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Apply a named filter previously created via /filter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de85bfa3-37c4-44ed-b4b6-96b2a199339c",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timeout",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dc",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nsfw",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"query\": \"string\",\n  \"license\": \"string\",\n  \"results\": [\n    {\n      \"url\": \"https://XV.qzgQe+0nR+jseU-W+C58XwE-U7UQ-D4hqxKViO04GOewrl9rjZUZjFdE2H2t\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"url\": \"http://hXJnvjWlUxzfYxpQDol.hquiLXwv-sVsA7MPcOtupbX-3zLRgXY61a\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3990d375-ae46-45c8-84ce-f65c058bfaac",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timeout",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dc",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nsfw",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f08528d5-2f70-4229-b42f-19e5478a1297",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "timeout",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dc",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nsfw",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api2.marginalia-search.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c01a16f8-87a0-49c8-8ff5-49aa5d0203ad",
+    "name": "Marginalia Filters Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Marginalia Search API provides programmatic access to the Marginalia independent search engine, focused on non-commercial content. The new API is hosted at api2.marginalia-search.com; legacy endpoints at api.marginalia.nu and api.marginalia-search.com remain available but deprecated. Search results are available under CC-BY-NC-SA 4.0 for non-commercial use.\n\nContact Support:\n Name: Marginalia Search\n Email: contact@marginalia-search.com",
+      "type": "text/plain"
+    }
+  }
+}

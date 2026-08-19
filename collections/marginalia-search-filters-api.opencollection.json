@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marginalia Search Filters API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-Key",
+      "value": "{{API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List configured filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api2.marginalia-search.com/filter"
+          },
+          "docs": "List configured filters"
+        },
+        {
+          "info": {
+            "name": "Retrieve a filter definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api2.marginalia-search.com/filter/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Filter name."
+              }
+            ]
+          },
+          "docs": "Retrieve a filter definition"
+        },
+        {
+          "info": {
+            "name": "Create a named filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api2.marginalia-search.com/filter/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Filter name."
+              }
+            ]
+          },
+          "docs": "Create or update a filter. Filter bodies are XML supporting domain inclusion/exclusion, temporal bias, term filtering, and parameter constraints (year, quality, size, rank)."
+        },
+        {
+          "info": {
+            "name": "Delete a filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api2.marginalia-search.com/filter/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Filter name."
+              }
+            ]
+          },
+          "docs": "Delete a filter"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

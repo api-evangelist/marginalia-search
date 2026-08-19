@@ -1,0 +1,561 @@
+{
+  "item": [
+    {
+      "id": "a80db719-4888-423b-8095-382976f34694",
+      "name": "Filters",
+      "description": {
+        "content": "Manage named search filters (new API only).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "790cdc0e-6787-4cd0-9fa2-e0e4f1f1f39e",
+          "name": "List configured filters",
+          "request": {
+            "name": "List configured filters",
+            "description": {},
+            "url": {
+              "path": [
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38654b78-66a6-4622-8915-ba72c39b360c",
+              "name": "List of filter names.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c30693f8-6840-434a-9f36-026a93f965b8",
+          "name": "Retrieve a filter definition",
+          "request": {
+            "name": "Retrieve a filter definition",
+            "description": {},
+            "url": {
+              "path": [
+                "filter",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Filter name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d380846-a3e7-4ec8-8c2a-06ab34839533",
+              "name": "Filter definition (XML).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filter",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Filter name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "67abf2dc-73e0-4c1f-b227-85a4aa7ec10e",
+              "name": "Filter not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filter",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Filter name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c64924e-77d4-49fd-89b7-7a94524d172c",
+          "name": "Create a named filter",
+          "request": {
+            "name": "Create a named filter",
+            "description": {
+              "content": "Create or update a filter. Filter bodies are XML supporting domain inclusion/exclusion, temporal bias, term filtering, and parameter constraints (year, quality, size, rank).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "filter",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Filter name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c041719b-bdaa-4950-8da0-bacf0a61e6dc",
+              "name": "Filter created or updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filter",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Filter name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af7add79-23c4-4e34-86dd-ccde4ddb8265",
+              "name": "Invalid filter definition.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filter",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Filter name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f822d7b-e4f0-4774-b230-6025b6307511",
+          "name": "Delete a filter",
+          "request": {
+            "name": "Delete a filter",
+            "description": {},
+            "url": {
+              "path": [
+                "filter",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Filter name."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "422355c8-6d4e-46bd-897e-8c8daac6e1b1",
+              "name": "Filter deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filter",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Filter name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16a21a42-4b6a-40ab-90c7-8b72f9b9beda",
+              "name": "Filter not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "filter",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Filter name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api2.marginalia-search.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "217419ce-ae75-4cf3-b8b4-7c59cd74ade9",
+    "name": "Marginalia Search Filters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Marginalia Search API provides programmatic access to the Marginalia independent search engine, focused on non-commercial content. The new API is hosted at api2.marginalia-search.com; legacy endpoints at api.marginalia.nu and api.marginalia-search.com remain available but deprecated. Search results are available under CC-BY-NC-SA 4.0 for non-commercial use.\n\nContact Support:\n Name: Marginalia Search\n Email: contact@marginalia-search.com",
+      "type": "text/plain"
+    }
+  }
+}
