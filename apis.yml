@@ -1,9 +1,8 @@
 aid: marginalia-search
 name: Marginalia Search
-description: >-
-  Marginalia Search is an independent search engine focused on non-commercial content. Its API is accessible through
-  api2.marginalia-search.com (current) and the legacy api.marginalia.nu / api.marginalia-search.com endpoints, and
-  allows developers to perform web searches against the Marginalia index.
+description: Marginalia Search is an independent search engine focused on non-commercial content. Its
+  API is accessible through api2.marginalia-search.com (current) and the legacy api.marginalia.nu / api.marginalia-search.com
+  endpoints, and allows developers to perform web searches against the Marginalia index.
 type: Index
 deliveryModel:
   model: unknown
@@ -32,16 +31,16 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/marginalia-search.png
 tags:
-  - Open-Source
-  - Search
-  - Web Search
+- Open-Source
+- Search
+- Web Search
 tags_raw:
-  - Open Source
-  - Search
-  - Web Search
+- Open Source
+- Search
+- Web Search
 url: https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/apis.yml
 created: '2025-02-06'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: marginalia-search:marginalia-search-filters-api
@@ -57,7 +56,7 @@ apis:
   - type: Documentation
     url: https://about.marginalia-search.com/article/api/
 - aid: marginalia-search:marginalia-search-search-api
-  name: Marginalia Search Search API
+  name: Marginalia Search API
   description: Search the Marginalia index.
   humanURL: https://about.marginalia-search.com/article/api/
   baseURL: https://api2.marginalia-search.com
@@ -69,18 +68,18 @@ apis:
   - type: Documentation
     url: https://about.marginalia-search.com/article/api/
 common:
-  - type: AgenticAccess
-    url: agentic-access/marginalia-search-agentic-access.yml
-  - type: DomainSecurity
-    url: security/marginalia-search-domain-security.yml
-  - type: Authentication
-    url: authentication/marginalia-search-authentication.yml
-  - type: Website
-    url: https://marginalia-search.com/
-  - type: GitHubOrganization
-    url: https://github.com/MarginaliaSearch
-  - type: Contact
-    url: mailto:contact@marginalia-search.com
+- type: AgenticAccess
+  url: agentic-access/marginalia-search-agentic-access.yml
+- type: DomainSecurity
+  url: security/marginalia-search-domain-security.yml
+- type: Authentication
+  url: authentication/marginalia-search-authentication.yml
+- type: Website
+  url: https://marginalia-search.com/
+- type: GitHubOrganization
+  url: https://github.com/MarginaliaSearch
+- type: Contact
+  url: mailto:contact@marginalia-search.com
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
