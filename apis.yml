@@ -31,13 +31,14 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/marginalia-search.png
 tags:
-- Open-Source
+- Open Source
 - Search
 - Web Search
 tags_raw:
 - Open Source
 - Search
 - Web Search
+- Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/apis.yml
 created: '2025-02-06'
 modified: '2026-09-16'

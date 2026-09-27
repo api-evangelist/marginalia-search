@@ -90,16 +90,6 @@ paths:
           description: Rate limit exceeded.
 components:
   schemas:
-    SearchResult:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-        title:
-          type: string
-        description:
-          type: string
     SearchResponse:
       type: object
       properties:
@@ -113,6 +103,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SearchResult'
+    SearchResult:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
   securitySchemes:
     APIKey:
       type: apiKey
