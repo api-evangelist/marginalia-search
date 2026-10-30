@@ -1,4 +1,4 @@
-# Marginalia Search (marginalia-search)
+# Marginalia Search
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,51 +66,116 @@
 
 Marginalia Search is an independent search engine focused on non-commercial content. Its API is accessible through api2.marginalia-search.com (current) and the legacy api.marginalia.nu / api.marginalia-search.com endpoints, and allows developers to perform web searches against the Marginalia index.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/apis.yml)
+**Areas:** Open Source · Search · Web Search
 
-## Scope
+## Marginalia Search on APIs.io
 
-- **Type:** Index
+Everything profiled for Marginalia Search is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/marginalia-search/](https://apis.io/providers/marginalia-search/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Open Source
-- Search
-- Web Search
+- [Marginalia Search Filters API](https://apis.io/apis/marginalia-search/marginalia-search-filters-api/) — Manage named search filters (new API only).
+- [Marginalia Search API](https://apis.io/apis/marginalia-search/marginalia-search-search-api/) — Search the Marginalia index.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-06
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Marginalia Search API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Marginalia Search API provides access to the Marginalia search engine index. The current API is hosted at api2.marginalia-search.com; legacy api.marginalia.nu and api.marginalia-search.com endpoints remain available but are deprecated. All requests authenticate via the API-Key header.
+- [Marginalia Search Agentic Access](https://apis.io/agentic-access/marginalia-search/marginalia-search-agentic-access/)
 
-- **Human URL:** [https://about.marginalia-search.com/article/api/](https://about.marginalia-search.com/article/api/)
-- **Base URL:** `https://api2.marginalia-search.com`
+#### Collections (3)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Search
-- Web Search
+- [Marginalia Search API](https://apis.io/collections/marginalia-search/open-marginalia-search/)
+- [Marginalia Search Filters API](https://apis.io/collections/marginalia-search/open-marginalia-search-filters-api/)
+- [Marginalia Filters Search API](https://apis.io/collections/marginalia-search/open-marginalia-search-search-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://about.marginalia-search.com/article/api/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/marginalia-search/refs/heads/main/openapi/marginalia-search-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/marginalia-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/marginalia-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Marginalia Search Authentication](https://apis.io/security/marginalia-search/marginalia-search-authentication/)
+- [Marginalia Search Domain Security](https://apis.io/security/marginalia-search/marginalia-search-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Marginalia Search Plans Pricing](https://apis.io/plans/marginalia-search/marginalia-search-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Marginalia Search Rate Limits](https://apis.io/rate-limits/marginalia-search/marginalia-search-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Marginalia Search Finops](https://apis.io/finops/marginalia-search/marginalia-search-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://marginalia-search.com/)
-- [GitHub Organization](https://github.com/MarginaliaSearch)
-- [Contact](mailto:contact@marginalia-search.com)
+- [GitHub](https://github.com/MarginaliaSearch)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 49.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/marginalia-search/](https://apis.io/providers/marginalia-search/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Marginalia Search: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/marginalia-search/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
